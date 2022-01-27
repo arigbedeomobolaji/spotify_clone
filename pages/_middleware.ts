@@ -14,7 +14,7 @@ type Token = {
 	jti: string;
 };
 
-export async function middleware(req: NextRequest, ev: NextFetchEvent) {
+export async function middleware(req: NextRequest) {
 	// Token will exist once user is logged in
 	const token = await getToken({ req, secret: process.env.JWT_SECRET });
 	// get pathname from nextUrl
