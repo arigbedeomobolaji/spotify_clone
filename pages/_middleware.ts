@@ -1,5 +1,5 @@
-import {  NextResponse } from 'next/server';
-import { getToken } from 'next-auth/jwt';
+import { NextResponse } from 'next/server';
+import { getToken, JWT } from 'next-auth/jwt';
 import { NextApiRequest } from 'next';
 
 type Token = {
@@ -17,9 +17,9 @@ type Token = {
 
 export async function middleware(req: NextApiRequest) {
 	// Token will exist once user is logged in
-	const token = await getToken({ req, secret: process.env.JWT_SECRET });
+	const token: JWT = await getToken({ req, secret: process.env.JWT_SECRET });
 	// get pathname from nextUrl
-	const { pathname } = req.nextUrl;
+	const { pathname }: { pathname: string } = req.nextUrl;
 	// allow the request if below is true
 	// 1) Its a request for next-auth session & provider fetching
 	// 2) Token exist
