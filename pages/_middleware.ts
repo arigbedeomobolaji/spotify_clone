@@ -1,5 +1,6 @@
-import { NextFetchEvent, NextRequest, NextResponse } from 'next/server';
+import {  NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
+import { NextApiRequest } from 'next';
 
 type Token = {
 	name: string;
@@ -14,7 +15,7 @@ type Token = {
 	jti: string;
 };
 
-export async function middleware(req: NextRequest) {
+export async function middleware(req: NextApiRequest) {
 	// Token will exist once user is logged in
 	const token = await getToken({ req, secret: process.env.JWT_SECRET });
 	// get pathname from nextUrl
