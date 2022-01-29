@@ -5,4 +5,7 @@ module.exports = {
 		SPOTIFY_CLIENT_ID: '',
 		SPOTIFY_CLIENT_SECRET: '',
 	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
 };
