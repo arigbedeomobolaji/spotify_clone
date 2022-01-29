@@ -18,7 +18,9 @@ function Song({ track, index }: Songs) {
 		// 		uris: [track.uri],
 		// 	});
 		// }
-		alert('We are very sorry we have cancelled subscription to spotify.');
+		alert(
+			"This music can't be stream because we have cancelled premium subscription on spotify."
+		);
 	}
 
 	return (
