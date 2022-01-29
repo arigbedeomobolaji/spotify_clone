@@ -20,6 +20,9 @@ export async function middleware(req: NextApiRequest) {
 	const token = await getToken({
 		req,
 		secret: process.env.JWT_SECRET && process.env.JWT_SECRET,
+		secureCookie:
+			process.env.NEXTAUTH_URL?.startsWith('https://') ??
+			!!process.env.VERCEL_URL,
 	});
 	// get pathname from nextUrl
 	const { pathname }: { pathname: string } = req.nextUrl;
